@@ -14,6 +14,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.List;
+
 import devandroid.gabriel.appgaseta.R;
 import devandroid.gabrito.appgaseta.controller.CombustivelController;
 import devandroid.gabrito.appgaseta.model.Combustivel;
@@ -38,6 +40,8 @@ public class GasEtaActivity extends AppCompatActivity {
     double precoEtanol;
     String recomendacao;
 
+    List<Combustivel> dados;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,13 @@ public class GasEtaActivity extends AppCompatActivity {
         });
 
         combustivelController = new CombustivelController(GasEtaActivity.this);
+        dados = combustivelController.getListaDeDados();
+
+        Combustivel objAlteracao = dados.get(0);
+        objAlteracao.setNomeDoCombustivel("**GASOLINA**");
+        objAlteracao.setPrecoDoCombustivel(5.97);
+        objAlteracao.setRecomendacao("**ABASTECER COM GASOLINA**");
+//        combustivelController.alterar(objAlteracao);
 
         editGasolina = findViewById(R.id.editGasolina);
         editEtanol = findViewById(R.id.editEtanol);

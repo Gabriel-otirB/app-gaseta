@@ -6,6 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import devandroid.gabrito.appgaseta.model.Combustivel;
+
 public class GasEtaDB extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "gaseta.db";
@@ -50,8 +55,48 @@ public class GasEtaDB extends SQLiteOpenHelper {
 
     }
 
-    public void salvarObjeto(String tabela, ContentValues dados) {
+    protected void salvarObjeto(String tabela, ContentValues dados) {
         db.insert(tabela, null, dados);
+    }
+
+    public List<Combustivel> listarDados() {
+
+        List<Combustivel> lista = new ArrayList<>();
+
+        Combustivel registro;
+
+        String querySQL = "SELECT * FROM combustivel";
+
+        cursor = db.rawQuery(querySQL, null);
+
+        if (cursor.moveToFirst()) {
+
+            do {
+
+                registro = new Combustivel();
+
+                registro.setId(cursor.getInt(0));
+                registro.setNomeDoCombustivel(cursor.getString(1));
+                registro.setPrecoDoCombustivel(cursor.getDouble(2));
+                registro.setRecomendacao(cursor.getString(3));
+
+                lista.add(registro);
+
+            } while (cursor.moveToNext());
+
+        } else {
+
+        }
+
+        return lista;
+    }
+
+    protected void alterarObjeto(String tabela, ContentValues dados) {
+
+        int id = dados.getAsInteger("id");
+
+        db.update(tabela, dados, "id=?", new String[]{Integer.toString(id)});
+
     }
 
 }
