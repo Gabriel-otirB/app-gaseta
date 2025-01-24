@@ -99,4 +99,10 @@ public class GasEtaDB extends SQLiteOpenHelper {
 
     }
 
+    protected void deletarObjeto(String tabela, int id) {
+
+        db.delete(tabela, "id=?", new String[]{Integer.toString(id)});
+
+    }
+
 }
