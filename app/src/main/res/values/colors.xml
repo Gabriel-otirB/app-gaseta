@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFEB3B</color>
     <color name="red">#FF0000</color>
+    <color name="icon_and_splash_bg_color">#CB7F68</color>
 </resources>
