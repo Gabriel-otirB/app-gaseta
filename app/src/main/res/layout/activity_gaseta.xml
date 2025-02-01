@@ -27,6 +27,7 @@
                 android:layout_marginEnd="16dp"
                 android:gravity="center_horizontal"
                 android:text="@string/txt_titulo"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -52,6 +53,7 @@
                     android:layout_marginEnd="48dp"
                     android:ems="10"
                     android:hint="@string/txt_hint_edit_gasolina"
+                    android:textColorHint="@color/white"
                     android:inputType="numberDecimal" />
 
                 <EditText
@@ -63,6 +65,7 @@
                     android:layout_marginEnd="16dp"
                     android:ems="10"
                     android:hint="@string/txt_int_edit_etanol"
+                    android:textColorHint="@color/white"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
@@ -85,6 +88,7 @@
                 android:layout_marginEnd="16dp"
                 android:gravity="center_horizontal"
                 android:text="@string/txt_resultado"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
